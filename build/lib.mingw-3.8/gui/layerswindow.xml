@@ -1,0 +1,41 @@
+<ui>
+  <popup name='LayersWindowPopup'>
+    <placeholder name="BasicLayerProperties">
+      <menuitem action='LayerProperties'/>
+      <menuitem action='LayerLockedToggle'/>
+      <menuitem action='LayerVisibleToggle'/>
+      <separator/>
+      <menuitem action='LayerMode'/>
+    </placeholder>
+    <placeholder name="AdvancedLayerProperties"/>
+    <separator/>
+    <placeholder name="BasicListActions">
+      <menuitem action='NewPaintingLayerAbove'/>
+      <menuitem action='NewVectorLayerAbove'/>
+      <menuitem action='NewLayerGroupAbove'/>
+      <separator/>
+      <menuitem action='DuplicateLayer'/>
+      <menuitem action='RemoveLayer'/>
+    </placeholder>
+    <separator/>
+    <placeholder name="BasicLayerActions">
+      <menuitem action="FlipLayerMoveMode"/>
+    </placeholder>
+    <separator/>
+    <placeholder name="AdvancedLayerActions">
+      <menuitem action='MergeLayerDown'/>
+      <menuitem action='MergeVisibleLayers'/>
+      <menuitem action='NewLayerMergedFromVisible'/>
+      <menuitem action='NormalizeLayerMode'/>
+      <separator/>
+    </placeholder>
+    <separator/>
+    <placeholder name="AdvancedListActions"/>
+    <separator/>
+    <placeholder name="BackgroundActions">
+      <menuitem action='ShowBackgroundToggle'/>
+      <menuitem action='BackgroundWindow'/>
+    </placeholder>
+  </popup>
+</ui>
+

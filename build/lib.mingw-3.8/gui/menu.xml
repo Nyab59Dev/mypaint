@@ -1,0 +1,316 @@
+<ui>
+  <menubar name='Menubar'>
+    <menu action='FileMenu'>
+      <menuitem action='New'/>
+      <menuitem action='Open'/>
+      <menuitem action='OpenRecent'/>
+      <menuitem action='OpenLast'/>
+      <menuitem action='Reload'/>
+      <separator/>
+      <menuitem action='Save'/>
+      <menuitem action='SaveAs'/>
+      <menuitem action='Export' />
+      <separator/>
+      <menuitem action='SaveScrap'/>
+      <menuitem action='NextScrap'/>
+      <menuitem action='PrevScrap'/>
+      <separator/>
+      <menuitem action='FrameToggle'/>
+      <menuitem action='SymmetryActive'/>
+      <separator/>
+      <menuitem action='RecoverAutosavedBackup'/>
+      <separator/>
+      <menuitem action='Quit'/>
+    </menu>
+    <menu action='EditMenu'>
+      <menuitem action='Undo'/>
+      <menuitem action='Redo'/>
+      <!-- Modes which affect drawing -->
+      <separator/>
+      <menuitem action='FlipFreehandMode'/>
+      <menuitem action='FlipInkingMode'/>
+      <menuitem action='FlipFloodFillMode'/>
+      <menuitem action='FlipStraightMode'/>
+      <menuitem action='FlipSequenceMode'/>
+      <menuitem action='FlipEllipseMode'/>
+      <menuitem action='FlipSymmetryEditMode'/>
+      <!-- All radio modes, in case somebody wants to bind those -->
+      <separator/>
+      <menuitem action='ToggleModeOptionsTool'/>
+      <menuitem action='ToggleHistoryPanel'/>
+      <separator/>
+      <menuitem action='PreferencesWindow'/>
+    </menu>
+    <menu action='ViewMenu'>
+      <menuitem action='Fullscreen'/>
+      <menu action='FeedbackMenu'>
+        <menuitem action='ToggleScaleFeedback'/>
+        <menuitem action='ToggleLastPosFeedback'/>
+      </menu>
+      <!--
+      Perhaps the less-important "show/toggle bits of the UI" settings
+      should be merged into one submenu.
+      -->
+      <menuitem action='FullscreenAutohide'/>
+      <menuitem action='ShowPopupMenu'/>
+      <menuitem action='TogglePreviewTool'/>
+      <separator/>
+      <!-- ResetView is on its own because it also recentres the canvas, -->
+      <menuitem action='ResetView'/>
+      <!-- also it should be more accessible then the following resets -->
+      <menuitem action='FitView'/>
+      <menu action='ResetMenu'>
+        <menuitem action='ResetRotation'/>
+        <menuitem action='ResetZoom'/>
+        <menuitem action='ResetMirror'/>
+        <!-- which all operate around the centre of the viewport. -->
+      </menu>
+      <separator/>
+      <menuitem action='FlipPanViewMode'/>
+      <menuitem action='FlipZoomViewMode'/>
+      <menuitem action='FlipRotateViewMode'/>
+      <menu action='ViewAdjustmentsMenu'>
+        <!-- Detailed view adjustments, for binding to keys -->
+        <menuitem action='ZoomIn'/>
+        <menuitem action='ZoomOut'/>
+        <menuitem action='RotateLeft'/>
+        <menuitem action='RotateRight'/>
+        <menuitem action='MirrorHorizontal'/>
+        <menuitem action='MirrorVertical'/>
+      </menu>
+      <separator/>
+      <menu action="DisplayFilterMenu">
+        <menuitem action='DisplayFilterNone'/>
+        <menuitem action='DisplayFilterLumaOnly'/>
+        <menuitem action='DisplayFilterInvertColors'/>
+        <menuitem action='DisplayFilterSimDeuteranopia'/>
+        <menuitem action='DisplayFilterSimProtanopia'/>
+        <menuitem action='DisplayFilterSimTritanopia'/>
+      </menu>
+      <separator/>
+      <menuitem action='SoloLayer'/>
+      <menuitem action='ShowBackgroundToggle'/>
+    </menu>
+    <menu action='BrushMenu'>
+      <!-- Brush choice from the user's collection -->
+      <menuitem action='BrushChooserPopup'/>
+      <menuitem action='BrushGroups'/>
+      <!-- Basic brush settings -->
+      <separator/>
+      <menuitem action='Bigger'/>
+      <menuitem action='Smaller'/>
+      <menuitem action='MoreOpaque'/>
+      <menuitem action='LessOpaque'/>
+      <!-- Detailed brush settings -->
+      <separator/>
+      <menuitem action='BrushEditorWindow'/>
+      <menuitem action='BrushIconEditorWindow'/>
+      <menuitem action='BrushReload'/>
+      <separator/>
+      <menu action='BlendModeMenu'>
+        <menuitem action='BlendModeNormal'/>
+        <menuitem action='BlendModeEraser'/>
+        <menuitem action='BlendModeLockAlpha'/>
+        <menuitem action='BlendModeColorize'/>
+      </menu>
+      <!-- Shortcuts for settings -->
+      <separator/>
+      <menu action='ContextMenu'>
+        <menuitem action='OnlineHelpBrushShortcutKeys'/>
+        <menuitem action='ContextStore'/>
+        <menuitem action='ContextRestoreColor'/>
+        <separator/>
+        <menuitem action='Context00'/>
+        <menuitem action='Context00s'/>
+        <menuitem action='Context01'/>
+        <menuitem action='Context01s'/>
+        <menuitem action='Context02'/>
+        <menuitem action='Context02s'/>
+        <menuitem action='Context03'/>
+        <menuitem action='Context03s'/>
+        <menuitem action='Context04'/>
+        <menuitem action='Context04s'/>
+        <menuitem action='Context05'/>
+        <menuitem action='Context05s'/>
+        <menuitem action='Context06'/>
+        <menuitem action='Context06s'/>
+        <menuitem action='Context07'/>
+        <menuitem action='Context07s'/>
+        <menuitem action='Context08'/>
+        <menuitem action='Context08s'/>
+        <menuitem action='Context09'/>
+        <menuitem action='Context09s'/>
+      </menu>
+      <menuitem action='PickContext'/>
+      <!-- Brush pack import -->
+      <separator/>
+      <menuitem action='ImportBrushPack'/>
+      <menuitem action='DownloadBrushPack'/>
+    </menu>
+    <menu action='ColorMenu'>
+      <!-- Colour choice using popups -->
+      <menuitem action='ColorChooserPopup'/>
+      <menuitem action='ColorChooserPopupFastSubset'/>
+      <!-- Color choice using fancy dialogs -->
+      <separator/>
+      <menuitem action='HCYWheelTool'/>
+      <menuitem action='HSVWheelTool'/>
+      <menuitem action='PaletteTool'/>
+      <menuitem action='HSVCubeTool'/>
+      <menuitem action='HSVSquareTool'/>
+      <menuitem action='ComponentSlidersTool'/>
+      <separator/>
+      <menuitem action="CrossedBowlColorChangerTool"/>
+      <menuitem action="WashColorChangerTool"/>
+      <menuitem action="RingsColorChangerTool"/>
+      <!-- Picking and reusing -->
+      <separator/>
+      <menuitem action='FlipColorPickMode'/>
+      <menuitem action='ColorHistoryPopup'/>
+      <separator/>
+      <menu action="ColorAdjustmentsMenu">
+        <!--
+          These are only here to show of the keybinding, really.
+          Using them from a menu is hard/pointless. They're for keys
+          and things like ring buttons.
+        -->
+        <menuitem action='Brighter'/>
+        <menuitem action='Darker'/>
+        <menuitem action='IncreaseHue'/><!-- "increase" = Clockwise -->
+        <menuitem action='DecreaseHue'/>
+        <menuitem action='Purer'/>
+        <menuitem action='Grayer'/>
+      </menu>
+      <!-- Palette -->
+      <separator/>
+      <menuitem action='PalettePrev'/>
+      <menuitem action='PaletteNext'/>
+      <menuitem action='PaletteAddCurrentColor'/>
+    </menu>
+    <menu action='LayerMenu'>
+      <!-- All layers: general -->
+      <separator/>
+      <menuitem action='ToggleLayersTool'/>
+      <menuitem action='BackgroundWindow'/>
+      <separator/>
+      <menuitem action='ImportLayers'/>
+      <!-- Switching layers -->
+      <separator/>
+      <menu action="LayerGoMenu">
+        <menuitem action='SelectLayerAbove'/>
+        <menuitem action='SelectLayerBelow'/>
+        <menuitem action='PickLayer'/>
+      </menu>
+      <!-- Current layer properties -->
+      <separator/>
+      <menu action="LayerPropertiesMenu">
+        <menuitem action='LayerProperties'/>
+        <menuitem action="LayerVisibleToggle"/>
+        <menuitem action="LayerLockedToggle"/>
+        <menuitem action='LayerMode'/>
+        <separator/>
+        <menu action="LayerOpacityMenu">
+          <menuitem action='IncreaseLayerOpacity'/>
+          <menuitem action='DecreaseLayerOpacity'/>
+        </menu>
+      </menu>
+      <!-- Current layer: position -->
+      <separator/>
+      <menuitem action='FlipLayerMoveMode'/>
+      <menuitem action="RaiseLayerInStack"/>
+      <menuitem action="LowerLayerInStack"/>
+      <!-- Current layer: creation -->
+      <separator/>
+      <menuitem action='NewPaintingLayerAbove'/>
+      <menuitem action='NewLayerGroupAbove'/>
+      <menuitem action='NewVectorLayerAbove'/>
+      <menu action="LayerNewBelowMenu">
+        <menuitem action='NewPaintingLayerBelow'/>
+        <menuitem action='NewLayerGroupBelow'/>
+        <menuitem action='NewVectorLayerBelow'/>
+      </menu>
+      <!-- Current layer: editing: Clipboard -->
+      <separator/>
+      <menuitem action='CopyLayer'/>
+      <menuitem action='PasteLayer'/>
+      <!-- Current layer: destructive editing actions -->
+      <separator/>
+      <menuitem action='ClearLayer'/>
+      <menuitem action='RemoveLayer'/>
+      <separator/>
+      <menu action="LayerSliceMenu">
+        <menuitem action='TrimLayer'/>
+        <separator/>
+        <menuitem action='UniqLayerPixels'/>
+        <menuitem action='UniqLayerTiles'/>
+        <separator/>
+        <menuitem action='RefactorLayerGroupPixels'/>
+        <menuitem action='RefactorLayerGroupTiles'/>
+      </menu>
+      <!-- Current layer: Splitting and merging -->
+      <separator/>
+      <menuitem action='DuplicateLayer'/>
+      <separator/>
+      <menuitem action='MergeLayerDown'/>
+      <menuitem action='MergeVisibleLayers'/>
+      <menuitem action='NewLayerMergedFromVisible'/>
+      <menuitem action='NormalizeLayerMode'/>
+      <!-- Current layer: external editing -->
+      <separator/>
+      <menuitem action='BeginExternalLayerEdit'/>
+      <menuitem action='CommitExternalLayerEdit'/>
+    </menu>
+    <menu action="ScratchMenu">
+      <menuitem action='ToggleScratchpadTool'/>
+      <separator/>
+      <menuitem action='ScratchNew'/>
+      <menuitem action='ScratchLoad'/>
+      <menuitem action='ScratchSaveNow'/>
+      <menuitem action='ScratchSaveAs'/>
+      <menuitem action='ScratchRevert'/>
+      <separator/>
+      <menuitem action='ScratchCopyBackground'/>
+      <separator/>
+      <menuitem action='ScratchSaveAsDefault'/>
+      <menuitem action='ScratchClearDefault'/>
+    </menu>
+    <menu action="WindowMenu">
+      <menuitem action="BrushGroups"/>
+      <menuitem action="ColorAdjusters"/>
+      <separator/>
+      <!-- "Reveal" variants go in the relevant menu. -->
+      <!-- This just collects the "Toggle" actions. -->
+      <menuitem action="ToggleModeOptionsTool"/>
+      <menuitem action="ToggleLayersTool"/>
+      <menuitem action="ToggleScratchpadTool"/>
+      <menuitem action="TogglePreviewTool"/>
+      <menuitem action="ToggleHistoryPanel"/>
+      <separator/>
+      <menuitem action="BackgroundWindow"/>
+      <separator/>
+      <menuitem action="BrushEditorWindow"/>
+      <menuitem action="BrushIconEditorWindow"/>
+      <separator/>
+      <menuitem action="PreferencesWindow"/>
+    </menu>
+    <menu action='HelpMenu'>
+      <menuitem action='OnlineHelpIndex'/>
+      <separator/>
+      <menu action='DebugMenu'>
+        <menuitem action='InputTestWindow'/>
+        <menuitem action='PrintInputs'/>
+        <menuitem action='CrashProgram'/>
+        <separator/>
+        <menuitem action='VisualizeRendering'/>
+        <menuitem action='NoDoubleBuffereing'/>
+        <separator/>
+        <menuitem action='PrintMemoryLeak'/>
+        <menuitem action='VacuumDocument'/>
+        <menuitem action='RunGarbageCollector'/>
+        <menuitem action='StartProfiling'/>
+      </menu>
+      <separator/>
+      <menuitem action='About'/>
+    </menu>
+  </menubar>
+</ui>

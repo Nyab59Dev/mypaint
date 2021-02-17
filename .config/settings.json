@@ -1,0 +1,350 @@
+{
+  "saving.scrap_prefix": "C:/Users/owner/Documents/MyPaint/scrap",
+  "input.device_mode": "screen",
+  "input.global_pressure_mapping": [
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.0
+    ]
+  ],
+  "input.use_barrel_rotation": true,
+  "input.barrel_rotation_subtract_ascension": true,
+  "input.barrel_rotation_offset": 0.5,
+  "view.default_zoom": 0.5,
+  "view.real_alpha_checks": true,
+  "ui.hide_menubar_in_fullscreen": true,
+  "ui.hide_toolbar_in_fullscreen": true,
+  "ui.hide_subwindows_in_fullscreen": true,
+  "ui.parts": {
+    "main_toolbar": true,
+    "menubar": true
+  },
+  "ui.feedback.scale": true,
+  "ui.feedback.last_pos": false,
+  "ui.toolbar_items": {
+    "toolbar1_file": true,
+    "toolbar1_scrap": true,
+    "toolbar1_edit": true,
+    "toolbar1_blendmodes": true,
+    "toolbar1_linemodes": true,
+    "toolbar1_view_modes": true,
+    "toolbar1_view_manips": true,
+    "toolbar1_view_resets": true
+  },
+  "ui.toolbar_icon_size": "large",
+  "ui.dark_theme_variant": true,
+  "ui.rendered_tile_cache_size": 16384,
+  "saving.default_format": "openraster",
+  "brushmanager.selected_brush": "Pen_note_L",
+  "brushmanager.selected_groups": [],
+  "frame.color_rgba": [
+    0.1803921568627451,
+    0.20392156862745098,
+    0.21176470588235294,
+    1.0
+  ],
+  "misc.context_restores_color": true,
+  "document.autosave_backups": true,
+  "document.autosave_interval": 10,
+  "display.colorspace_EOTF": 2.2,
+  "display.colorspace": "srgb",
+  "scratchpad.last_opened_scratchpad": "C:/Users/owner/AppData/Local/mypaint/scratchpads/autosave.ora",
+  "workspace.layout": {
+    "left_sidebar": {
+      "groups": [
+        {
+          "tools": [
+            [
+              "MyPaintBrushGroupTool",
+              "Note L"
+            ],
+            [
+              "MyPaintHistoryPanel"
+            ],
+            [
+              "MyPaintBrushGroupTool",
+              "favorites"
+            ]
+          ],
+          "active_page": 0,
+          "w": 305,
+          "h": 171
+        },
+        {
+          "tools": [
+            [
+              "MyPaintLayersTool"
+            ],
+            [
+              "MyPaintScratchpadTool"
+            ],
+            [
+              "MyPaintModeOptionsTool"
+            ]
+          ],
+          "active_page": 0,
+          "w": 305,
+          "h": 748
+        },
+        {
+          "tools": [],
+          "active_page": -1
+        }
+      ],
+      "w": 305,
+      "h": 931
+    },
+    "right_sidebar": {
+      "groups": [
+        {
+          "tools": [
+            [
+              "MyPaintPreviewTool"
+            ]
+          ],
+          "active_page": 0,
+          "w": 222,
+          "h": 123
+        },
+        {
+          "tools": [
+            [
+              "MyPaintBrushGroupTool",
+              "My Painting"
+            ],
+            [
+              "MyPaintBrushGroupTool",
+              "Deevad"
+            ],
+            [
+              "MyPaintBrushGroupTool",
+              "Note"
+            ]
+          ],
+          "active_page": 2,
+          "w": 222,
+          "h": 85
+        },
+        {
+          "tools": [
+            [
+              "MyPaintPaletteTool"
+            ]
+          ],
+          "active_page": 0,
+          "w": 222,
+          "h": 706
+        },
+        {
+          "tools": [],
+          "active_page": -1
+        }
+      ],
+      "w": 222,
+      "h": 931
+    },
+    "floating": [],
+    "position": {},
+    "autohide": false,
+    "fullscreen": false,
+    "maximized": true
+  },
+  "input.button_mapping": {
+    "Button3": "PanViewMode",
+    "<Shift>Button3": "RotateViewMode",
+    "<Primary>Button3": "ZoomViewMode",
+    "<Alt>Button3": "ZoomViewMode",
+    "<Primary><Shift>Button3": "FrameEditMode",
+    "<Shift><Alt>Button3": "FrameEditMode",
+    "Button2": "ShowPopupMenu"
+  },
+  "compat_behavior_when_unknown": "unless-pigment-layer-1.x",
+  "default_compatibility_mode": "2.x",
+  "compability_settings": {
+    "1.x": {
+      "pigment_on_by_default": false,
+      "pigment_layer_is_default": false
+    },
+    "2.x": {
+      "pigment_on_by_default": true,
+      "pigment_layer_is_default": true
+    }
+  },
+  "external_apps": [
+    "\"C:/App/Inkscape/bin/inkscape.exe\" \"%1\""
+  ],
+  "scratchpad.last_opened": "C:/Users/owner/AppData/Local/mypaint/scratchpads/autosave.ora",
+  "command.max_undo_stack_size": 40,
+  "input.devices": {
+    "System Aggregated Pointer:mouse:2": {
+      "usage": "any",
+      "scroll": "zoom"
+    },
+    "GAOMON Tablet Pressure Stylus:pen:5": {},
+    "GAOMON Tablet Eraser:pen:5": {}
+  },
+  "colors.current": "#4e278a",
+  "colors.palette": {
+    "name": "Note",
+    "columns": 7,
+    "entries": [
+      [
+        "#000000",
+        "Black"
+      ],
+      [
+        "#f61f6a",
+        null
+      ],
+      [
+        "#ff1a40",
+        null
+      ],
+      [
+        "#ff3622",
+        "Tomato"
+      ],
+      [
+        "#ed5353",
+        null
+      ],
+      [
+        "#273ff5",
+        null
+      ],
+      [
+        "#0047ab",
+        "Cobalt blue"
+      ],
+      [
+        "#0e5680",
+        null
+      ],
+      [
+        "#1a8cff",
+        null
+      ],
+      [
+        "#78b4ff",
+        "Bright french blue"
+      ],
+      [
+        "#008080",
+        "Teal"
+      ],
+      [
+        "#35b730",
+        null
+      ],
+      [
+        "#2bd965",
+        null
+      ],
+      [
+        "#ff8c00",
+        "Orange"
+      ],
+      [
+        "#ffdd33",
+        null
+      ],
+      [
+        "#f3fd25",
+        "Lemon yellow"
+      ],
+      [
+        "#cd9ef7",
+        null
+      ],
+      null,
+      null,
+      null,
+      null,
+      [
+        "#808080",
+        null
+      ],
+      [
+        "#ffffff",
+        null
+      ],
+      [
+        "#00ff00",
+        "RGB Green"
+      ],
+      [
+        "#0000ff",
+        "RGB Blue"
+      ],
+      [
+        "#4e278a",
+        "Violet"
+      ],
+      [
+        "#d10000",
+        "English-red"
+      ],
+      [
+        "#ffde00",
+        null
+      ]
+    ]
+  },
+  "ui.support_smooth_scrolling": true,
+  "ui.blink_layers": true,
+  "ui.file_compat_warning_mild": true,
+  "ui.file_compat_warning_severe": true,
+  "colors.history": [
+    "#cd9ef7",
+    "#808080",
+    "#ffdd32",
+    "#000000",
+    "#4e278a"
+  ],
+  "color_chooser.default.window_size": [
+    256,
+    264
+  ],
+  "brush_chooser.default.window_size": [
+    256,
+    306
+  ],
+  "preview.show_viewfinder": true,
+  "color_chooser.fast_subset.window_size": [
+    282,
+    322
+  ],
+  "color_chooser.fast_subset.selected_adjuster": "PaletteTool",
+  "brush_chooser.default.selected_group": "Note L",
+  "flood_fill.tolerance": 0.0,
+  "flood_fill.sample_merged": false,
+  "flood_fill.gap_closing": true,
+  "flood_fill.gap_size": 15,
+  "flood_fill.retract_seeps": false,
+  "flood_fill.limit_to_view": true,
+  "flood_fill.offset": 3,
+  "ui.hide_cursor_while_painting": false,
+  "cursor.freehand.style": "thick",
+  "cursor.freehand.min_size": 7,
+  "cursor.freehand.outer_line_width": 3.75,
+  "cursor.freehand.inner_line_width": 2.25,
+  "cursor.freehand.inner_line_inset": 3,
+  "cursor.freehand.outer_line_color": [
+    0,
+    0,
+    0,
+    1
+  ],
+  "cursor.freehand.inner_line_color": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "autorecovery.check_at_startup": false,
+  "keyboard.disable_fallbacks": false
+}
