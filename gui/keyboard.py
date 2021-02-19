@@ -108,10 +108,11 @@ class KeyboardManager:
         # Instead of using event.keyval, we do it the lowlevel way.
         # Reason: ignoring CAPSLOCK and checking if SHIFT was pressed
         state = Gdk.ModifierType(event.state & ~Gdk.ModifierType.LOCK_MASK)
-        res = keymap.translate_keyboard_state(event.hardware_keycode, state,
-                                              # https://github.com/mypaint/mypaint/issues/974
-                                              # event.group)
-                                              0)
+        res = keymap.translate_keyboard_state(
+                event.hardware_keycode,
+                event.state & ~Gdk.ModifierType.LOCK_MASK,
+                event.group
+            )
         if not res:
             # PyGTK returns None when gdk_keymap_translate_keyboard_state()
             # returns false.  Not sure if this is a bug or a feature - the only

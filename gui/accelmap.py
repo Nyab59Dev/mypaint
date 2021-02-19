@@ -428,15 +428,24 @@ class AccelMapEditor (Gtk.Grid):
         # Stolen from GTK 2.24's gtk/gtkmenu.c (gtk_menu_key_press())
         # Figure out what modifiers went into determining the key symbol
         keymap = Gdk.Keymap.get_default()
-        bound, keyval, effective_group, level, consumed_modifiers = (
+        _bound, _keyval, effective_group, level, consumed_modifiers = (
             keymap.translate_keyboard_state(
                 event.hardware_keycode,
-                event.state,
-                # https://github.com/mypaint/mypaint/issues/974
-                # event.group
-                0
+                event.state & Gdk.ModifierType.MODIFIER_MASK,
+                event.group
             ))
-        keyval = Gdk.keyval_to_lower(keyval)
+        # print(f'keyvalTrue : {keyval & ~Gdk.ModifierType.MODIFIER_MASK}')
+        # print(f'keyval : {keyval}')
+
+        print(f'keyvalNameH : {Gdk.keyval_name(event.hardware_keycode)}')
+        print(f'keyvalName : {Gdk.keyval_name(event.keyval)}')
+        print(f'event.keyval : {event.keyval}')
+        print(f'keyval : {_keyval}')
+        print(f'event.keyval : {event.keyval}')
+        print(f'effective_group : {effective_group}')
+        print(f'level : {level}')
+        print(f'modcons : {consumed_modifiers}')
+        keyval = Gdk.keyval_to_lower(event.keyval)
         mods = Gdk.ModifierType(
             event.state
             & Gtk.accelerator_get_default_mod_mask()
