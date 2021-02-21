@@ -1,8 +1,11 @@
-## python が PC内に何個もあるので注意
+# Windows 10 でビルド
 
-![](md-img/D_2021-02-21_PythonExe.png)
+- 目的
+  - build ディレクトリを gitignore せずに、powershell などでそのまま実行できるように
 
 ## powershell から実行
+
+- MinGW64 の python.exe をフルパスで指定する
 
 ```powershell
 cd C:/ws/mypaint
@@ -12,7 +15,13 @@ C:\msys64\mingw64\bin\python.exe setup.py
 C:\msys64\mingw64\bin\python.exe .\build\scripts-3.8\mypaint.py
 ```
 
+## python が PC内に何個もある場合は注意
+
+![](md-img/D_2021-02-21_PythonExe.png)
+
 ## エラー発生
+
+- `build/lib.mingw-3.8/_mypaintlib-cpython-38.dll` を `lib/_mypaintlib-cpython-38.dll` へコピーすると治る
 
 ```powershell
 Traceback (most recent call last):
