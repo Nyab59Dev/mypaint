@@ -141,6 +141,12 @@ def main(
         userdatapath = os.path.join(basedir, appsubdir)
         basedir = lib.glib.get_user_config_dir()
         userconfpath = os.path.join(basedir, appsubdir)
+
+        userdatapath = "C:/ws/mypaint/.config"
+        userconfpath = "C:/ws/mypaint/.config"
+        # print('!!" ' + os.path.dirname(os.path.realpath(__file__)))
+        # print(userdatapath)
+        # print(userconfpath)
     else:
         userdatapath = options.config
         userconfpath = options.config
