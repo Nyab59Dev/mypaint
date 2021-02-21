@@ -16,7 +16,7 @@ _mypaintlib.def
 .sconsign.dblite
 TAGS
 tags
-_mypaintlib*.dll
+# _mypaintlib*.dll
 brushlib/*-gen.h
 brushlib/mypaint-config.h
 desktop/mypaint-ora-thumbnailer
