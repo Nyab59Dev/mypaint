@@ -304,7 +304,7 @@ class AccelMapEditor (Gtk.Grid):
         is_sub = self._filter_check(model, it, key)
         return not is_sub  # inverted sense (as in equality w. strcmp)
 
-    ## Filter
+    # Filter
 
     def _filter_check(self, model, iter, search_key):
         if search_key:
@@ -496,7 +496,9 @@ class AccelMapEditor (Gtk.Grid):
             keymap.translate_keyboard_state(
                 event.hardware_keycode,
                 event.state,
-                1,
+                # https://github.com/mypaint/mypaint/issues/974
+                # event.group
+                1
             ))
         keyval = Gdk.keyval_to_lower(keyval)
         mods = Gdk.ModifierType(

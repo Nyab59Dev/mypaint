@@ -1,0 +1,3 @@
+LIBRARY _mypaintlib-cpython-38.dll
+EXPORTS
+PyInit__mypaintlib
