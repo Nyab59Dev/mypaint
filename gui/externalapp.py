@@ -18,6 +18,7 @@ import weakref
 import os.path
 import os
 import subprocess
+import re
 
 import gui.document  # noqa
 
@@ -103,7 +104,6 @@ def original_environ():
             } if orig else {}
     return _ORIGINAL_ENV
 
-
 def restore_env(ctx):
     """Clear existing envvars in context & use the given envvars instead
 
@@ -135,6 +135,14 @@ def restore_env(ctx):
     for varname, value in original_environ().items():
         ctx.setenv(varname, value)
 
+def app_name(appinfo):
+    if appinfo.get_name() != 'Unnamed':
+        return appinfo.get_name()
+    elif appinfo.get_display_name() != 'Unnamed':
+        return appinfo.get_display_name()
+    else:
+        cmd = appinfo.get_commandline()
+        return re.sub(r'["\']\S*[\\/](\S+)["\']\s.*', r'\1', cmd)
 
 # Class definitions
 
@@ -181,8 +189,15 @@ class OpenWithDialog (Gtk.Dialog):
         default_iter = None
         app_list_store = Gtk.ListStore(object)
         apps = Gio.AppInfo.get_all_for_type(content_type)
+
+        # TODO
+        # Gio.AppInfo.create_from_commandline
+
         for app in apps:
-            if not app.should_show():
+            if os.name == 'nt':
+                if not app.get_commandline():
+                    continue
+            elif not app.should_show():
                 continue
             row_iter = app_list_store.append([app])
             if default_iter is not None:
@@ -204,15 +219,15 @@ class OpenWithDialog (Gtk.Dialog):
         content_box.pack_start(view_scrolls, True, True, 0)
 
         # Column 0: application icon
-        cell = Gtk.CellRendererPixbuf()
-        col = Gtk.TreeViewColumn(_("Icon"), cell)
-        col.set_cell_data_func(cell, self._app_icon_datafunc)
-        icon_size_ok, icon_w, icon_h = Gtk.icon_size_lookup(self.ICON_SIZE)
-        if icon_size_ok:
-            col.set_min_width(icon_w)
-        col.set_expand(False)
-        col.set_resizable(False)
-        view.append_column(col)
+        # cell = Gtk.CellRendererPixbuf()
+        # col = Gtk.TreeViewColumn(_("Icon"), cell)
+        # col.set_cell_data_func(cell, self._app_icon_datafunc)
+        # icon_size_ok, icon_w, icon_h = Gtk.icon_size_lookup(self.ICON_SIZE)
+        # if icon_size_ok:
+        #     col.set_min_width(icon_w)
+        # col.set_expand(False)
+        # col.set_resizable(False)
+        # view.append_column(col)
 
         # Column 1: application name
         cell = Gtk.CellRendererText()
@@ -242,24 +257,28 @@ class OpenWithDialog (Gtk.Dialog):
 
     def _app_name_datafunc(self, col, cell, model, it, data):
         app = model.get_value(it, 0)
-        name = app.get_display_name()
-        desc = app.get_description()
-        if desc is not None:
-            markup_template = "<b>{name}</b>\n{description}"
-        else:
-            markup_template = "<b>{name}</b>\n<i>({description})</i>"
-            desc = _("no description")
+        # name = app.get_display_name()
+        name = app_name(app)
+        cmd  = app.get_commandline()
+        markup_template = "<b>{name}</b>\n{description}"
+        # desc = app.get_description()
+        # if desc is not None:
+            # markup_template = "<b>{name}</b>\n{description}"
+        # else:
+            # markup_template = "<b>{name}</b>"
+            # markup_template = "<b>{name}</b>\n<i>({description})</i>"
+            # desc = _("no description")
         markup = markup_template.format(
             name=lib.xml.escape(name),
-            description=lib.xml.escape(desc),
+            description=lib.xml.escape(cmd),
         )
         cell.set_property("markup", markup)
 
-    def _app_icon_datafunc(self, col, cell, model, it, data):
-        app = model.get_value(it, 0)
-        icon = app.get_icon()
-        cell.set_property("gicon", icon)
-        cell.set_property("stock-size", self.ICON_SIZE)
+    # def _app_icon_datafunc(self, col, cell, model, it, data):
+    #     app = model.get_value(it, 0)
+    #     icon = app.get_icon()
+    #     cell.set_property("gicon", icon)
+    #     cell.set_property("stock-size", self.ICON_SIZE)
 
     def _row_activated_cb(self, view, treepath, column):
         model = view.get_model()
@@ -317,22 +336,25 @@ class LayerEditManager (object):
         except AttributeError:
             return
         file_path = new_edit_tempfile()
-        if os.name == 'nt':
-            self._begin_file_edit_using_startfile(file_path, layer)
+        # if os.name == 'nt':
+            # self._begin_file_edit_using_gio(file_path, layer)
+            # self._begin_file_edit_using_startfile(file_path, layer)
             # Avoid segfault: https://github.com/mypaint/mypaint/issues/531
             # Upstream: https://bugzilla.gnome.org/show_bug.cgi?id=758248
-        else:
-            self._begin_file_edit_using_gio(file_path, layer)
+        # else:
+        #   self._begin_file_edit_using_gio(file_path, layer)
+
+        self._begin_file_edit_using_gio(file_path, layer)
         self._begin_file_monitoring_using_gio(file_path, layer)
 
-    def _begin_file_edit_using_startfile(self, file_path, layer):
-        logger.info("Using os.startfile() to edit %r", file_path)
-        os.startfile(file_path, "edit")
-        self._doc.app.show_transient_message(
-            _LAUNCH_SUCCESS_MSG.format(
-                app_name = "(unknown Win32 app)",  # FIXME: needs i18n
-                layer_name = layer.name,
-            ))
+    # def _begin_file_edit_using_startfile(self, file_path, layer):
+    #     logger.info("Using os.startfile() to edit %r", file_path)
+    #     os.startfile(file_path, "edit")
+    #     self._doc.app.show_transient_message(
+    #         _LAUNCH_SUCCESS_MSG.format(
+    #             app_name = "(unknown Win32 app)",  # FIXME: needs i18n
+    #             layer_name = layer.name,
+    #         ))
 
     def _begin_file_edit_using_gio(self, file_path, layer):
         logger.info("Using OpenWithDialog and GIO to open %r", file_path)
@@ -365,7 +387,7 @@ class LayerEditManager (object):
 
         logger.debug(
             "Launching %r with %r (user-chosen app for %r)",
-            appinfo.get_name(),
+            app_name(appinfo),
             file_path,
             file_type,
         )
@@ -373,18 +395,18 @@ class LayerEditManager (object):
         if not launched_app:
             self._doc.app.show_transient_message(
                 _LAUNCH_FAILED_MSG.format(
-                    app_name=appinfo.get_name(),
+                    app_name=app_name(appinfo),
                     layer_name=layer.name,
                 ))
             logger.error(
                 "Failed to launch %r with %r",
-                appinfo.get_name(),
+                app_name(appinfo),
                 file_path,
             )
             return
         self._doc.app.show_transient_message(
             _LAUNCH_SUCCESS_MSG.format(
-                app_name=appinfo.get_name(),
+                app_name=app_name(appinfo),
                 layer_name=layer.name,
             ))
 
@@ -473,7 +495,7 @@ if __name__ == '__main__':
     # dialog = OpenWithDialog("application/xml")
     response = dialog.run()
     if response == Gtk.ResponseType.OK:
-        app_name = dialog.selected_appinfo.get_name()
+        app_name = app_name(dialog.selected_appinfo)
         logger.debug("AppInfo chosen: %r", app_name)
     else:
         logger.debug("Dialog was cancelled")
