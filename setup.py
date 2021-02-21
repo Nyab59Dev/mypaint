@@ -142,22 +142,25 @@ class BuildTranslations (Command):
         link_dest = os.path.join(base, "locale")
         link_src = os.path.join(tmp, "locale")
         try:
-            if os.path.exists(link_dest):
+            try:
                 os.remove(link_dest)
+            except Exception:
+                pass
             os.symlink(link_src, link_dest)
-        except Exception:
+        except Exception as e:
             msg = ("Could not make symlink: {symlink}\n"
                    "In order to get working translations when running "
                    "from the source directory, a corresponding link or "
                    "copy needs to be created.")
             symlink = str(link_dest) + " --> " + str(link_src)
+            print_err(f"message:{e.message}")
             print_err(msg.format(symlink=symlink))
 
     def _compile_message_catalog(self, po_file_path, mo_file_path):
         needs_update = not (
-            os.path.exists(mo_file_path) and
-            os.stat(mo_file_path).st_mtime >=
-            os.stat(po_file_path).st_mtime
+            os.path.exists(mo_file_path)
+            and os.stat(mo_file_path).st_mtime
+            >= os.stat(po_file_path).st_mtime
         )
 
         if needs_update:
