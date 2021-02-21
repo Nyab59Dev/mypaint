@@ -1,3 +1,7 @@
+/.config/scratchpads/
+*.code-workspace
+/.project
+/.pydevproject
 *.swp
 *.pyc
 *.pyd
@@ -12,6 +16,7 @@ _mypaintlib.def
 .sconsign.dblite
 TAGS
 tags
+# _mypaintlib*.dll
 brushlib/*-gen.h
 brushlib/mypaint-config.h
 desktop/mypaint-ora-thumbnailer
@@ -31,6 +36,8 @@ POTFILES.in
 *.gir
 *.typelib
 po/tmp
+# @Nyab D_2021-02-20
+.config
 build
 flatpak/.flatpak-builder/
 MyPaint.egg-info
