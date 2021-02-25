@@ -16,7 +16,8 @@ logger = logging.getLogger(__name__)
 def is_ascii(s):
     return s and all(ord(c) < 128 for c in s)
 
-def translate_keyboard_state_improved(hardware_keycode, state, group):
+
+def translate(hardware_keycode, state, group):
     # We may need to retry several times to deal with garbled text.
 
     keymap = Gdk.Keymap.get_default()
@@ -54,8 +55,9 @@ def translate_keyboard_state_improved(hardware_keycode, state, group):
             break
 
     if not ok_to_return:
-        logger.warning('translate_keyboard_state() returned no valid response. '
-                       'Strange key pressed?')
+        logger.warning(
+            'translate_keyboard_state() returned no valid response. '
+            'Strange key pressed?')
 
         return None, None, None, None
 

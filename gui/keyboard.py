@@ -102,14 +102,10 @@ class KeyboardManager:
             return True
         if not self.enabled:
             return
-        # See gtk sourcecode in gtkmenu.c function gtk_menu_key_press,
-        # which uses the same code as below when changing an accelerator.
-        keymap = Gdk.Keymap.get_default()
 
         # Instead of using event.keyval, we do it the lowlevel way.
         # Reason: ignoring CAPSLOCK and checking if SHIFT was pressed
-        state = Gdk.ModifierType(event.state & ~Gdk.ModifierType.LOCK_MASK)
-        keyval, keyval_lower, accel_label, modifiers = kb.translate_keyboard_state_improved(
+        keyval, keyval_lower, accel_label, modifiers = kb.translate(
             event.hardware_keycode,
             event.state,
             event.group

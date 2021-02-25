@@ -493,7 +493,7 @@ class AccelMapEditor (Gtk.Grid):
         # Stolen from GTK 2.24's gtk/gtkmenu.c (gtk_menu_key_press())
         # Figure out what modifiers went into determining the key symbol
 
-        keyval, keyval_lower, accel_label, mods = kb.translate_keyboard_state_improved(
+        keyval, keyval_lower, accel_label, mods = kb.translate(
             event.hardware_keycode,
             event.state,
             event.group
